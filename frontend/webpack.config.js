@@ -5,14 +5,14 @@ module.exports = {
   entry: "./src/index.jsx",
   output: {
     path: __dirname + "/public",
-    filename: "./app.js",
+    filename: "./app.jsx",
   },
   devServer: {
     port: 8080,
     contentBase: "./public",
   },
   resolve: {
-    extensions: ["", ".js", "jsx"],
+    extensions: ["", ".js", ".jsx"],
     alias: {
       modules: __dirname + "/node_modules",
     },
@@ -34,7 +34,7 @@ module.exports = {
         loader: ExtractTextPlugin.extract("style-loader", "css-loader"),
       },
       {
-        text: /\.woff|.woff2|.ttf|.eot|.svg*.*$/,
+        test: /\.woff|.woff2|.ttf|.eot|.svg*.*$/,
         loader: "file",
       },
     ],
