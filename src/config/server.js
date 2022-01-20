@@ -10,6 +10,8 @@ server.use(bodyParser.json());
 
 //register port
 server.listen(port, function () {
-    //signal: success 
+  //signal: success
   console.log(`BACKEND is running on port ${port}.`);
 });
+
+module.exports = server;
