@@ -20,7 +20,6 @@ export default (props) => {
             </tr>
         ))
     }
-
     return (
         <table className="table">
             <thead>
