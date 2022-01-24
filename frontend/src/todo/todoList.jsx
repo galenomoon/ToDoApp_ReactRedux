@@ -1,8 +1,9 @@
 import React from "react";
+import { connect } from "react-redux"; //1) import connect
 import IconButton from "../template/iconButton";
 
 
-export default (props) => {
+const TodoList = (props) => { //2) Transform the export default in a function
 
     const renderRows = () => {
         const list = props.list || []
@@ -34,3 +35,9 @@ export default (props) => {
         </table>
     )
 }
+
+//3) Mapping state of the {connected} application and send it to props
+const mapStateToProps = state => ({
+    list: state.todo.list
+})
+export default connect(mapStateToProps)(TodoList);
