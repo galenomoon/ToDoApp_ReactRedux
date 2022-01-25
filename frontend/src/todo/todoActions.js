@@ -11,6 +11,20 @@ export const search = () => {
   const request = axios.get(`${URL}?sort=-createdAt`);
   return {
     type: "TODO_SEARCHED",
-    payload: request
+    payload: request,
+  };
+};
+
+//Action Creator
+// export const addTask = (description) => {
+//   const request = axios.post(URL, { description });
+//   return [{ type: "TODO_ADDED", payload: request }, search()];
+// };
+export const addTask = (description) => {
+  return (dispatch) => {
+    axios
+      .post(URL, { description })
+      .then((resp) => dispatch({ type: "TODO_ADDED", payload: resp.data }))
+      .then((resp) => dispatch(search()))
   };
 };
